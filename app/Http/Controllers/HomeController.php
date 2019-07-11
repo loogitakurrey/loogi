@@ -31,9 +31,9 @@ class HomeController extends Controller
 
     public function currentCurrencyRate()
     {
-        $api_key='d4ec30171e8d13fc2a03138e1aae3800';
+        $api_key='d4ec30171e';
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, 'http://data.fixer.io/api/latest?access_key=d4ec30171e8d13fc2a03138e1aae3800&symbols=INR,USD,EUR,GBP,ILS');
+        curl_setopt($ch, CURLOPT_URL, 'http://data.fixer.io/api/latest?access_key=d4ec30171e&symbols=INR,USD,EUR,GBP,ILS');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
         $result= curl_exec($ch);
@@ -75,7 +75,7 @@ class HomeController extends Controller
         $input = $request->input('base_cur');
         $api_key='d4ec30171e8d13fc2a03138e1aae3800';
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, 'http://data.fixer.io/api/latest?access_key=d4ec30171e8d13fc2a03138e1aae3800&base='.$input.'&symbols=INR,USD,EUR,GBP,ILS');
+        curl_setopt($ch, CURLOPT_URL, 'http://data.fixer.io/api/latest?access_key=d4ec30171e&base='.$input.'&symbols=INR,USD,EUR,GBP,ILS');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
         $result= curl_exec($ch);
@@ -106,7 +106,7 @@ class HomeController extends Controller
         $to_country=$request->input('to_country');
         $from_country=$request->input('from_country');
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "https://free.currconv.com/api/v7/convert?q=".$to_country."_".$from_country."&compact=ultra&apiKey=302fc2336841671e7e08");
+        curl_setopt($ch, CURLOPT_URL, "https://free.currconv.com/api/v7/convert?q=".$to_country."_".$from_country."&compact=ultra&apiKey=d4ec30171e");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
         $headers = array();
@@ -131,7 +131,7 @@ class HomeController extends Controller
         //return ($date);
         $date = date('Y-m-d',strtotime($date));
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "http://data.fixer.io/api/".$date."?access_key=d4ec30171e8d13fc2a03138e1aae3800&symbols=INR,USD,EUR,GBP,ILS");
+        curl_setopt($ch, CURLOPT_URL, "http://data.fixer.io/api/".$date."?access_key=d4ec30171e&symbols=INR,USD,EUR,GBP,ILS");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
         $headers = array();
